@@ -21,18 +21,18 @@ class EquiposAdapter (private var equiposData : MutableList<Equipo>):RecyclerVie
     }
     val seleccion = MutableLiveData<Equipo>()
     override fun onBindViewHolder(holder: EquiposViewHolder, position: Int) {
-        //holder.nombreEquipo.text = equiposData.get(position).name
-        //holder.precioEquipo.text = equiposData.get(position).price
-        //Picasso.get().load(equiposData.get(position).image).into(holder.imagen)
+        holder.nombreEquipo.text = equiposData.get(position).name
+        holder.precioEquipo.text = equiposData.get(position).price
+        Picasso.get().load(equiposData.get(position).image).into(holder.imagen)
 
         holder.itemView.setOnClickListener{
             seleccion.value =  equiposData.get(position)
         }
     }
     class EquiposViewHolder (itemView: View):RecyclerView.ViewHolder(itemView){
-        //var nombreEquipo = itemView.nombre_equipo
-        //var precioEquipo = itemViewiew.precio_equipo
-        //var imagen = itemView.imagen
+        var nombreEquipo = itemView.nombre_equipo
+        var precioEquipo = itemViewiew.precio_equipo
+        var imagen = itemView.imagen
     }
 
     fun actualizar (it: List<Equipo>){
